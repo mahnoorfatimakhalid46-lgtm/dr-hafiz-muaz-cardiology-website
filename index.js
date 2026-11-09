@@ -63,6 +63,33 @@ function send(){
 document.getElementById('chSend').onclick=send;
 inp.addEventListener('keypress',e=>{if(e.key==='Enter')send()});
 
+/* ===== RESPONSIVE FIX ===== */
+@media (max-width: 1024px){
+  .hero-grid, .about-grid, .services-grid, .stats{
+    grid-template-columns: 1fr !important;
+  }
+  .hero-text h1{font-size:42px !important; line-height:1.1 !important;}
+}
+
+@media (max-width: 768px){
+  #links{
+    position:fixed; top:70px; right:-100%; width:75%; height:100vh;
+    background:#0a0a0a; flex-direction:column; padding:30px;
+    transition:0.3s; z-index:99;
+  }
+  #links.open{right:0;}
+  #ham{display:block !important;}
+  .hero{padding-top:100px !important;}
+  .stats{grid-template-columns:1fr 1fr !important;}
+}
+
+@media (max-width: 480px){
+  .hero-text h1{font-size:32px !important;}
+  .stats{grid-template-columns:1fr !important;}
+  .services-grid{grid-template-columns:1fr !important;}
+  .form-grid{grid-template-columns:1fr !important;}
+}
+
 window.addEventListener('scroll',()=>{
   const el=document.querySelector('.scroll-down');
   if(el) el.style.opacity=window.scrollY>100?'0':'1';
